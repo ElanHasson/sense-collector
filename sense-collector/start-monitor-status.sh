@@ -46,7 +46,7 @@ if [ "$debug" == "true" ]
 
 then
 
-echo "$(date) - Starting Sense Collector (start-monitor-status.sh) - https://github.com/lux4rd0/sense-collector
+echo "$(date) - Starting Sense Collector (start-monitor-status.sh) - https://github.com/elanh/sense-collector
 
 Debug Environmental Variables
 

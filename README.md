@@ -20,10 +20,10 @@ The project builds a pre-configured Docker container that takes different config
 
 ## Deploying the Sense Collector
 
-Use the following [Docker container](https://hub.docker.com/r/lux4rd0/sense-collector):
+Use the following [Docker container](https://hub.docker.com/r/elanh/sense-collector):
 
-    lux4rd0/sense-collector:1.0.1
-    lux4rd0/sense-collector:latest
+    elanh/sense-collector:1.0.4
+    elanh/sense-collector:latest
     
 Correct environmental variables are required for the container to function. It mainly includes a **Monitor ID** and a corresponding **authentication token**. If you don't have those, the following script may be used:
 
@@ -31,9 +31,9 @@ Correct environmental variables are required for the container to function. It m
 
 The script takes the following details about your InfluxDB and your Sense credentials as environmental variables:
 
-    SENSE_COLLECTOR_INFLUXDB_PASSWORD
+    SENSE_COLLECTOR_INFLUXDB_PASSWORD # this should be the influxdb token
     SENSE_COLLECTOR_INFLUXDB_URL
-    SENSE_COLLECTOR_INFLUXDB_USERNAME
+    SENSE_COLLECTOR_INFLUXDB_USERNAME # this isn't used but i have not yet removed it.
     SENSE_COLLECTOR_PASSWORD
     SENSE_COLLECTOR_USERNAME
 
@@ -65,7 +65,7 @@ An example of this docker-compose.yml file is included in this repository.
           SENSE_COLLECTOR_MONITOR_ID: 72535
           SENSE_COLLECTOR_TOKEN: t1.1476.1474.8e6dc77daf22e1fb471d7b942w97e477d1es53bcf2d72
           TZ: America/Chicago
-        image: lux4rd0/sense-collector:latest
+        image: elanh/sense-collector:latest
         restart: always
     version: '3.3'
 
@@ -81,7 +81,7 @@ If you don't want to use docker-compose, an example docker run command will be d
       -e SENSE_COLLECTOR_TOKEN=t1.1476.1474.8e6dc77daf22e1fb471d7b942w97e477d1es53bcf2d72 \
       -e TZ=America/Chicago \
       --restart always \
-      lux4rd0/sense-collector:latest
+      elanh/sense-collector:latest
 
 Running `docker-compose up -d' or the `docker-run` command will download and start up the sense-collector container. 
 
@@ -232,7 +232,7 @@ Health Check is a function that runs every 60 seconds to validate the health of 
 
 ## Grafana Dashboards
 
-Collecting data is only half the fun. Now it's time to provision some Grafana Dashboards to visualize all of your essential Sense data. You'll find a [folder of dashboards](https://github.com/lux4rd0/sense-collector/dashboards) with collectors and backends split out. You can also use the links/numbers next to each dashboard title to load the dashboards in [directly from Grafana](https://grafana.com/grafana/dashboards?search=sense%20collector).
+Collecting data is only half the fun. Now it's time to provision some Grafana Dashboards to visualize all of your essential Sense data. You'll find a [folder of dashboards](https://github.com/elanh/sense-collector/dashboards) with collectors and backends split out. You can also use the links/numbers next to each dashboard title to load the dashboards in [directly from Grafana](https://grafana.com/grafana/dashboards?search=sense%20collector).
 
 ### In General:
 
@@ -318,7 +318,7 @@ See the open issues for a list of proposed features (and known issues).
 
 Dave Schmid: [@lux4rd0](https://twitter.com/lux4rd0) - dave@pulpfree.org
 
-Project Link: https://github.com/lux4rd0/sense-collector
+Project Link: https://github.com/elanh/sense-collector
 
 ## Acknowledgements
 

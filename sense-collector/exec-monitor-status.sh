@@ -119,7 +119,7 @@ fi
 
 if [ "$curl_debug" == "true" ]; then curl=(  ); else curl=( --silent --output /dev/null --show-error --fail ); fi
 
-/usr/bin/timeout -k 1 10s curl "${curl[@]}" --connect-timeout 2 --max-time 2 --retry 5 --retry-delay 0 --retry-max-time 30 -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "${curl_message}" &
+/usr/bin/timeout -k 1 10s curl "${curl[@]}" --connect-timeout 2 --max-time 2 --retry 5 --retry-delay 0 --retry-max-time 30 -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "${curl_message}" &
 
 ##
 ## Device Detection - In Progress
@@ -176,7 +176,7 @@ fi
 
 if [ "$curl_debug" == "true" ]; then curl=(  ); else curl=( --silent --output /dev/null --show-error --fail ); fi
 
-/usr/bin/timeout -k 1 10s curl "${curl[@]}" --connect-timeout 2 --max-time 2 --retry 5 --retry-delay 0 --retry-max-time 30 -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "${curl_message}" &
+/usr/bin/timeout -k 1 10s curl "${curl[@]}" --connect-timeout 2 --max-time 2 --retry 5 --retry-delay 0 --retry-max-time 30 -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "${curl_message}" &
 
 done
 
@@ -233,7 +233,7 @@ fi
 
 if [ "$curl_debug" == "true" ]; then curl=(  ); else curl=( --silent --output /dev/null --show-error --fail ); fi
 
-/usr/bin/timeout -k 1 10s curl "${curl[@]}" --connect-timeout 2 --max-time 2 --retry 5 --retry-delay 0 --retry-max-time 30 -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "${curl_message}" &
+/usr/bin/timeout -k 1 10s curl "${curl[@]}" --connect-timeout 2 --max-time 2 --retry 5 --retry-delay 0 --retry-max-time 30 -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "${curl_message}" &
 
 done
 
@@ -259,7 +259,7 @@ fi
 
 if [ "$curl_debug" == "true" ]; then curl=(  ); else curl=( --silent --output /dev/null --show-error --fail ); fi
 
-/usr/bin/timeout -k 1 10s curl "${curl[@]}" --connect-timeout 2 --max-time 2 --retry 5 --retry-delay 0 --retry-max-time 30 -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "${curl_message}" &
+/usr/bin/timeout -k 1 10s curl "${curl[@]}" --connect-timeout 2 --max-time 2 --retry 5 --retry-delay 0 --retry-max-time 30 -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "${curl_message}" &
 
 wait
 
@@ -278,7 +278,7 @@ if [ "$debug" == "true" ]; then echo "$(date) - observations_duration:${observat
 
 if [ -n "$influxdb_url" ]; then
 
-curl "${curl[@]}" -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "
+curl "${curl[@]}" -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "
 sense_o11y,host_hostname=${host_hostname},function="monitor_status",source=${collector_type} duration=${observations_duration}"
 
 fi

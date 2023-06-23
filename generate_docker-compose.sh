@@ -39,7 +39,7 @@ echo "
                                                                            
 "
 
-echo "${echo_bold}Sense Collector${echo_normal} (generate_docker-compose.sh) - https://github.com/lux4rd0/sense-collector
+echo "${echo_bold}Sense Collector${echo_normal} (generate_docker-compose.sh) - https://github.com/elanh/sense-collector
 
 ${echo_bold}influxdb_password${echo_normal}=${influxdb_password}
 ${echo_bold}influxdb_url${echo_normal}=${influxdb_url}
@@ -110,7 +110,7 @@ fi
 
 echo "      SENSE_COLLECTOR_TOKEN: ${token}
       SENSE_COLLECTOR_MONITOR_ID: ${monitor_id}
-    image: lux4rd0/sense-collector:latest
+    image: elanh/sense-collector:latest
     restart: always
 version: '3.3'" >> docker-compose.yml
 
@@ -132,7 +132,7 @@ echo "docker run --rm \\
   -e SENSE_COLLECTOR_TOKEN=${token} \\
   -e TZ=America/Chicago \\
   --restart always \\
-  lux4rd0/sense-collector:latest"
+  elanh/sense-collector:latest"
 
 
 
