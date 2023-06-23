@@ -20,10 +20,10 @@ The project builds a pre-configured Docker container that takes different config
 
 ## Deploying the Sense Collector
 
-Use the following [Docker container](https://hub.docker.com/r/lux4rd0/sense-collector):
+Use the following [Docker container](https://hub.docker.com/r/elanh/sense-collector):
 
-    lux4rd0/sense-collector:1.0.1
-    lux4rd0/sense-collector:latest
+    elanh/sense-collector:1.0.4
+    elanh/sense-collector:latest
     
 Correct environmental variables are required for the container to function. It mainly includes a **Monitor ID** and a corresponding **authentication token**. If you don't have those, the following script may be used:
 
