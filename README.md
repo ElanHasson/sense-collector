@@ -31,9 +31,9 @@ Correct environmental variables are required for the container to function. It m
 
 The script takes the following details about your InfluxDB and your Sense credentials as environmental variables:
 
-    SENSE_COLLECTOR_INFLUXDB_PASSWORD
+    SENSE_COLLECTOR_INFLUXDB_PASSWORD # this should be the influxdb token
     SENSE_COLLECTOR_INFLUXDB_URL
-    SENSE_COLLECTOR_INFLUXDB_USERNAME
+    SENSE_COLLECTOR_INFLUXDB_USERNAME # this isn't used but i have not yet removed it.
     SENSE_COLLECTOR_PASSWORD
     SENSE_COLLECTOR_USERNAME
 

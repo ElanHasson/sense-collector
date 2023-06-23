@@ -243,7 +243,7 @@ cpu_usage=$( awk 'BEGIN {print ( 100 * (('$total_time' / '"$clock_ticks"') / '"$
 ## Send Per Process CPU Metrics To InfluxDB
 ##
 
-curl "${curl[@]}" -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "
+curl "${curl[@]}" -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "
 sense_o11y,host_hostname=${host_hostname},source=${collector_type},sysperf_type=process_utilization,sysperf_command=${comm} pid=${pid},ppid=${ppid},uptime=${uptime},utime=${utime},stime=${stime},cstime=${cstime},starttime=${starttime},total_time=${total_time},seconds=${seconds},cpu_usage=${cpu_usage}"
 
 fi
@@ -253,7 +253,7 @@ done
 ## Send CPU, Memory, and Netstat Metrics To InfluxDB
 ##
 
-curl "${curl[@]}" -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "
+curl "${curl[@]}" -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "
 sense_o11y,host_hostname=${host_hostname},source=${collector_type},sysperf_type=cpu cpu_gnice=${cpu_gnice},cpu_guest=${cpu_guest},cpu_idle=${cpu_idle},cpu_iowait=${cpu_iowait},cpu_irq=${cpu_irq},cpu_nice=${cpu_nice},cpu_soft=${cpu_soft},cpu_steal=${cpu_steal},cpu_sys=${cpu_sys},cpu_usr=${cpu_usr}
 sense_o11y,host_hostname=${host_hostname},source=${collector_type},sysperf_type=memory mem_available=${mem_available},mem_buffers=${mem_buffers},mem_cache=${mem_cache},mem_free=${mem_free},mem_shared=${mem_shared},mem_total=${mem_total},mem_used=${mem_used},swap_free=${swap_free},swap_total=${swap_total},swap_used=${swap_used}
 sense_o11y,host_hostname=${host_hostname},source=${collector_type},sysperf_type=process_count processes_running=${processes_running},processes_sleeping=${processes_sleeping},processes_stopped=${processes_stopped},processes_zombie=${processes_zombie}
@@ -275,7 +275,7 @@ if [ "$debug" == "true" ]; then echo "$(date) - observations_duration:${observat
 
 if [ -n "$influxdb_url" ]; then
 
-curl "${curl[@]}" -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "
+curl "${curl[@]}" -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "
 sense_o11y,host_hostname=${host_hostname},function="host_performance",source=${collector_type} duration=${observations_duration}"
 
 fi

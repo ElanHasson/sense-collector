@@ -1,6 +1,6 @@
 FROM grafana/promtail:2.2.1
 
-RUN apt-get update && apt-get install -y bc curl dumb-init bash python procps coreutils sysstat vim net-tools
+RUN apt-get update && apt-get install -y bc curl dumb-init bash python procps coreutils sysstat vim net-tools jq
 
 RUN mkdir /sense-collector
 
@@ -10,14 +10,12 @@ exec-monitor-status.sh \
 exec-sense-collector.sh \
 sense-collector-details.sh \
 start-device-details.sh \
+sense-collector-init.sh \
 start-host-performance.sh \
 start-monitor-status.sh \
 start-sense-collector.sh \
-sense-collector-init.sh \
 websocat_amd64-linux-static \
 /sense-collector/
-
-COPY jq /usr/bin/
 
 WORKDIR /sense-collector
 

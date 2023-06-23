@@ -87,7 +87,7 @@ current_time=$(date +%s)
 
 if [ -n "$influxdb_url" ]; then
 
-curl "${curl[@]}" -i -XPOST "${influxdb_url}" -u "${influxdb_username}":"${influxdb_password}" --data-binary "
+curl "${curl[@]}" -i -XPOST "${influxdb_url}" --header "Content-Type: text/plain; charset=utf-8"   --header "Accept: application/json" --header "Authorization: Token ${influxdb_password}"  --data-binary "
 sense_o11y,host_hostname=${host_hostname},function="process_start",source=${collector_type},type=event time_epoch=${current_time}000"
 
 fi
