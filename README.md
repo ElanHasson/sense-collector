@@ -65,7 +65,7 @@ An example of this docker-compose.yml file is included in this repository.
           SENSE_COLLECTOR_MONITOR_ID: 72535
           SENSE_COLLECTOR_TOKEN: t1.1476.1474.8e6dc77daf22e1fb471d7b942w97e477d1es53bcf2d72
           TZ: America/Chicago
-        image: lux4rd0/sense-collector:latest
+        image: elanh/sense-collector:latest
         restart: always
     version: '3.3'
 
@@ -81,7 +81,7 @@ If you don't want to use docker-compose, an example docker run command will be d
       -e SENSE_COLLECTOR_TOKEN=t1.1476.1474.8e6dc77daf22e1fb471d7b942w97e477d1es53bcf2d72 \
       -e TZ=America/Chicago \
       --restart always \
-      lux4rd0/sense-collector:latest
+      elanh/sense-collector:latest
 
 Running `docker-compose up -d' or the `docker-run` command will download and start up the sense-collector container. 
 
@@ -232,7 +232,7 @@ Health Check is a function that runs every 60 seconds to validate the health of 
 
 ## Grafana Dashboards
 
-Collecting data is only half the fun. Now it's time to provision some Grafana Dashboards to visualize all of your essential Sense data. You'll find a [folder of dashboards](https://github.com/lux4rd0/sense-collector/dashboards) with collectors and backends split out. You can also use the links/numbers next to each dashboard title to load the dashboards in [directly from Grafana](https://grafana.com/grafana/dashboards?search=sense%20collector).
+Collecting data is only half the fun. Now it's time to provision some Grafana Dashboards to visualize all of your essential Sense data. You'll find a [folder of dashboards](https://github.com/elanh/sense-collector/dashboards) with collectors and backends split out. You can also use the links/numbers next to each dashboard title to load the dashboards in [directly from Grafana](https://grafana.com/grafana/dashboards?search=sense%20collector).
 
 ### In General:
 
@@ -318,7 +318,7 @@ See the open issues for a list of proposed features (and known issues).
 
 Dave Schmid: [@lux4rd0](https://twitter.com/lux4rd0) - dave@pulpfree.org
 
-Project Link: https://github.com/lux4rd0/sense-collector
+Project Link: https://github.com/elanh/sense-collector
 
 ## Acknowledgements
 

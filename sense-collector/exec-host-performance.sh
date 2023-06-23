@@ -34,7 +34,7 @@ if [ "$debug" == "true" ]
 
 then
 
-echo "${echo_bold}${echo_color_host_performance}${collector_type}:${echo_normal} $(date) - Starting Sense Collector (exec-host-performance.sh) - https://github.com/lux4rd0/sense-collector
+echo "${echo_bold}${echo_color_host_performance}${collector_type}:${echo_normal} $(date) - Starting Sense Collector (exec-host-performance.sh) - https://github.com/elanh/sense-collector
 
 Debug Environmental Variables
 

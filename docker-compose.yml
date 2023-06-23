@@ -9,6 +9,6 @@ services:
       SENSE_COLLECTOR_MONITOR_ID: 72535
       SENSE_COLLECTOR_TOKEN: t1.1476.1474.8e6dc77daf22e1fb471d7b942w97e477d1es53bcf2d72
       TZ: America/Chicago
-    image: lux4rd0/sense-collector:latest
+    image: elanh/sense-collector:latest
     restart: always
 version: '3.3'
